@@ -3,7 +3,7 @@
         "name": "xajayanthi/xearts_composer-wp-dev-kit",
         "version": "1.0.0",
         "source": {
-          "url": "https://raw.githubusercontent.com/xajayanthi/xearts_composer-wp-dev-kit/master/packages.json",
+          "url": "git@github.com:xajayanthi/xearts_composer-wp-dev-kit.git",
           "type": "git",
           "reference": "master"
 
