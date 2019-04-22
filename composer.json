@@ -20,12 +20,12 @@
         "squizlabs/php_codesniffer": "^2.5.1"
     },
     "extra": {
-        "wordpress-install-dir": "wp-testproj",
+        "wordpress-install-dir": "public_html/wp",
         "installer-paths": {
-            "wp-content/plugins/{$name}/": [
+            "public_html/wp-content/plugins/{$name}/": [
                 "type:wordpress-plugin"
             ],
-            "wp-content/themes/{$name}/": [
+            "public_html/wp-content/themes/{$name}/": [
                 "type:wordpress-theme"
             ]
         }
