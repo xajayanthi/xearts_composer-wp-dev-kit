@@ -1,27 +1,23 @@
 {
   "server": {
-    "host": "localhost",
-    "port": "8080"
+    "url":"http://wptestproject.test"
   },
   "mysql": {
     "database": "composer_wp_dev",
     "username": "root",
-    "password": "",
+    "password": "password",
     "host": "localhost"
   },
   "table_prefix": "wp_",
   "wp": {
-    "title": "Welcome to the Composer",
+    "title": "Welcome to the Wordpress test project ",
     "description": "Hello World!",
-    "gmt_offset": "9",
     "lang": "ja",
-    "rewrute_structure": "/archives/%post_id%",
-    "theme": "vanilla",
+    "theme": "wptestproject",
     "admin": {
       "user": "admin",
       "password": "admin",
-      "email": "admin@example.com"
+      "email": "xesys@xearts.jp"
     }
-  },
-  "theme_unit_test_uri": "https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml"
+  }
 }
