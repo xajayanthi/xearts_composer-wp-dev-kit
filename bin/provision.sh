@@ -9,6 +9,23 @@ SH_DIR=$(cd $(dirname $0);pwd)
 . $SH_DIR/check-mysql.sh
 
 
+ if [ ! -e "${DOC_ROOT}${WP_DIR}/wp-config.php" ];then
+
+    $WP_CLI core config --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASS} --dbhost=${DB_HOST} --skip-salts  --extra-php <<PHP
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+
+define( 'WP_SITEURL', '${URL}${WP_DIR}' );
+define( 'WP_HOME', '${URL}' );
+
+define( 'WP_CONTENT_DIR', dirname(__DIR__) . '${WP_CONTENT_DIR}' );
+define( 'WP_CONTENT_URL', WP_HOME . '${WP_CONTENT_DIR}');
+
+
+PHP
+
+fi
+
 ## Start Server if installed.
 if ! $($WP_CLI core is-installed); then
 
@@ -21,16 +38,18 @@ if ! $($WP_CLI core is-installed); then
         echo "CREATE DATABASE $DB_NAME DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" | mysql -u$DB_USER
     fi
 
-    ## Install WordPress.
-    $WP_CLI core install \
-    --url=http://$HOST:$PORT \
-    --path=wp \
-    --title="$WP_TITLE" \
-    --admin_user="$WP_ADMIN_USER" \
-    --admin_password="$WP_ADMIN_PASSWORD" \
-    --admin_email="$WP_ADMIN_EMAIL"
 
-    ## Setup Options.
+        ## Install WordPress.
+        $WP_CLI core install \
+        --url=http://"$URL" \
+        --path="${DOC_ROOT}${WP_DIR}" \
+        --title="$WP_TITLE" \
+        --admin_user="$WP_ADMIN_USER" \
+        --admin_password="$WP_ADMIN_PASSWORD" \
+        --admin_email="$WP_ADMIN_EMAIL"
+
+
+    # Setup Options.
     $WP_CLI option update blogname "$WP_TITLE"
 
     if [ $WP_DESCRIPTION ]; then
@@ -64,3 +83,4 @@ if ! $($WP_CLI core is-installed); then
     fi
 
 fi
+
