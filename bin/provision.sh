@@ -11,7 +11,10 @@ SH_DIR=$(cd $(dirname $0);pwd)
 
  if [ ! -e "${DOC_ROOT}${WP_DIR}/wp-config.php" ];then
 
+    cp ${ROOT}/salt.php ${DOC_ROOT}${WP_DIR}/salt.php
+
     $WP_CLI core config --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASS} --dbhost=${DB_HOST} --skip-salts  --extra-php <<PHP
+require_once dirname( __FILE__ ) . '/salt.php';
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 
@@ -69,6 +72,10 @@ if ! $($WP_CLI core is-installed); then
         $WP_CLI rewrite structure "$WP_REWRITE_STRUCTURE"
     fi
 
+    # create theme
+    if [ ! -e "${DOC_ROOT}${WP_CONTENT_DIR}/themes/${WP_THEME}" ]; then
+         $WP_CLI  scaffold _s ${WP_THEME} --theme_name="${WP_THEME}" --author="xeArts"  --sassify
+    fi
     # Activate Theme.
     if [ $WP_THEME ]; then
         $WP_CLI theme activate "$WP_THEME"
