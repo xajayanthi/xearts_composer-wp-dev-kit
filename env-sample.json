@@ -1,14 +1,15 @@
+
 {
   "server": {
     "url":"http://wptestproject.test",
     "host":"wptestproject.test",
-    "port":"8080"
-    },
+    "port":"8010"
+  },
   "dir_structure": {
-        "public_dir":"/public_html",
-        "wp_dir":"/wp",
-        "wp_content_dir":"/wp-content"
-      },
+    "public_dir":"/public_html",
+    "wp_dir":"/wp",
+    "wp_content_dir":"/wp-content"
+  },
   "mysql": {
     "database": "composer_wp_dev",
     "username": "root",
@@ -20,11 +21,13 @@
     "title": "Welcome to the Wordpress test project ",
     "description": "HelloWorld",
     "lang": "ja",
+    "gmt_offset": "9",
+    "rewrute_structure": "/archives/%post_id%",
     "theme": "wptestproject",
     "admin": {
-    "user": "admin",
-    "password": "admin",
-    "email": "xesys@xearts.jp"
+      "user": "admin",
+      "password": "admin",
+      "email": "xesys@xearts.jp"
     }
   }
 }
