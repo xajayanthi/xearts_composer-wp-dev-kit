@@ -42,8 +42,5 @@
         "provision": "bash ./bin/provision.sh",
         "server": "bash ./bin/server.sh",
         "create-env": "bash ./bin/create-env.sh"
-    },
-    "config": {
-        "process-timeout":0
     }
 }
