@@ -91,3 +91,5 @@ if ! $($WP_CLI core is-installed); then
 
 fi
 
+#Move the index.php from ROOT folder to DOC_ROOT folder
+cp ${ROOT}/index.php ${DOC_ROOT}/index.php
