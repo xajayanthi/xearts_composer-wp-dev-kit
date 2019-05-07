@@ -25,9 +25,13 @@ $ composer create-project xajayanthi/xearts_composer-wp-dev-kit path/to/project
 ```
 
 ```
-If xearts_composer-wp-dev-kit is not registered in  packagist.org,use the below command to create project 
+If xearts_composer-wp-dev-kit is not registered in  packagist.org,execute the below to create project 
 
-$ composer create-project  --repository path/to/GITProjectPath/packages.json  xajayanthi/xearts_composer-wp-dev-kit path/to/project
+First GIT clone xajayanthi/xearts_composer-wp-dev-kit to local folder (path/to/GITClonePath)
+
+and then execute the following commands
+$ composer clear-cache 
+$ composer create-project  --repository path/to/GITClonePath/packages.json  xajayanthi/xearts_composer-wp-dev-kit path/to/project
 
 ```
 ### 3. Start Development!
