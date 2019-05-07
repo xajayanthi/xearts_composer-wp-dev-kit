@@ -4,27 +4,41 @@ WordPress Environment for PHP Built-in Server.
 
 ## Getting Started
 
-### 1. Install PHP, composer, WP-CLI, mariaDB ( or MySQL ) and jq, cURL.
+### 1. Installation of PHP, composer, WP-CLI, MySQL , yq, cURL.
 
-##### for OSX
+PHP and cURL are pre-installed in Mac OS. 
 
-PHP and cURL are pre-installed.
+If  Composer, WP-CLI, MySQL , yq are not installed ,install through brew command
 
-```
-$ brew install composer wp-cli mariadb jq 
+$ brew install composer 
+$ brew install wp-cli 
+$ brew install mysql 
+$ brew install yq 
+
 ```
 
 
 ### 2. Create Project
 
 ```
-$ composer create-project torounit/composer-wp-dev-kit path/to/project
+$ composer create-project xajayanthi/xearts_composer-wp-dev-kit path/to/project
 ```
 
+```
+If xearts_composer-wp-dev-kit is not registered in  packagist.org,execute the below to create project 
+
+First GIT clone xajayanthi/xearts_composer-wp-dev-kit to local folder (path/to/GITClonePath)
+
+and then execute the following commands
+$ composer clear-cache 
+$ composer create-project  --repository path/to/GITClonePath/packages.json  xajayanthi/xearts_composer-wp-dev-kit path/to/project
+
+```
 ### 3. Start Development!
 
 ```
 $ cd path/to/project
+Note:Before executing the below command,Update the env-sample.json file for environment variables
 $ composer create-env
 $ vi .env.json
 $ mysql.server start
@@ -39,14 +53,6 @@ $ composer provision
 $ composer server
 ```
 
-### 4. For Production.
-
-Create and Edit config.php.
-
-```
-$ composer create-production-config
-$ vi config.php
-```
 
 ## Directory & Files.
 
@@ -58,10 +64,10 @@ $ vi config.php
 
 ## Commands
 
+* `composer create-env` create .env.json
 * `composer provision` Provisioning WordPress.
 * `composer server` Start `wp server` and open browser.
-* `composer import-theme-unit-test` Import theme unit test data.
-* `composer create-env` create .env.json
-* `composer create-production-config` create config.php
+* `composer import-theme-unit-test` Import theme unit test data. (Not used in Xearts)
+* `composer create-production-config` create config.php (Not Used in Xearts)
 
 
